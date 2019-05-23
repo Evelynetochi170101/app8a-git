@@ -10,10 +10,10 @@
 <div id="ubicacion"></div>
 <script type="text/javascript">
  if (navigator.geolocation) {
-	 navigator.geolocation.getCurrentPosition  (Mostrar Ubicacion);
+	 navigator.geolocation.getCurrentPosition  (MostrarUbicacion);
  } else (alert("¡Error! Este navegador no soporta la geolocalizacion.");}
     function refrescarUbicacion(){
-		navigator.geolocation.watchPosition(Mostrar ubicacion);}
+		navigator.geolocation.watchPosition(MostrarUbicacion);}
 </script>
 
 <!--Se escribe un mapa con la localizacion anterior-->
@@ -21,27 +21,27 @@
 <div id="mapholder"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFd0aiE5FttY8XRAFI9ecTSpgo2vP-qMk"></script>	
 
-<button onClick="cargamap()"> Cargar mapa</button>
+<button onClick="cargarmap()"> Cargar mapa</button>
 <script type="text/javascript">
  var x=document.getElementById("demo");
-  function cargamap(){
+  function cargarmap(){
 	  navigator.geolocation.getCurrentPosition (showPosition,showError);
 	  function showPosition(position)
 	  {
 		  lat=position.coords.latitude;
 		   lon=position.coords.longitude;
-		   lation=new google.maps.LatLng(lat,lon)
-	mapholder=document .getElementByld ('mapholder')
+		   latlon=new google.maps.LatLng(lat,lon)
+	mapholder=document .getElementById ('mapholder')
 	mapholder.style.height ='500px';
 	mapholder.style.width ='750px';
 	var myOptions={
 		center:lation,zoom:17,
 		mapTypeld:google.maps.MapTypeld.ROADMAP,
 		mapTypeControl:false,
-		navigationControlOptions:(style:google.maps.navigationControlStyle.Small}
+		navigationControlOptions:(style:google.maps.navigationControlStyle.SMALL}
 	  }:
 	  var map=new google.maps.Map(document.getElementById("mapholder").myOptions);
-	  var marker=new google.maps.marker({position:latlon,map:map,title:"You are here!"});
+	  var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
   }
   function showError(error)
   {
